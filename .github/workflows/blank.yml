@@ -28,7 +28,8 @@ jobs:
 
       - name: Download NewRelic agent
         run: |
-          curl -L https://download.newrelic.com/newrelic/java-agent/newrelic-agent/${{ vars.NEW_RELIC_AGENT_VERSION }}/newrelic-java.zip -o ./newrelic-java.zip
-          unzip newrelic-java.zip
-          mv ./newrelic/newrelic.jar ./deploy/newrelic.jar
+          mkdir deploy
+          curl -L https://download.newrelic.com/newrelic/java-agent/newrelic-agent/${{ vars.NEW_RELIC_AGENT_VERSION}}/newrelic-java.zip -o ./newrelic-java.zip
+          unzip newrelic-java.zip newrelic/newrelic.jar
+          mv ./newrelic/newrelic.jar ./deploy/newrelic/newrelic.jar
           ls -l
